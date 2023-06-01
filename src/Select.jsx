@@ -8,6 +8,7 @@ const Select = props => {
    * @props {string} openInputClassName - A class name for the input when open.
    * @props {string} optionsClassName - A class name for the options list.
    * @props {string} optionClassName - A class name for each option.
+   * @props {string} selectedOptionClassName - A class name for the selected option.
    * 
    */
 
@@ -21,7 +22,8 @@ const Select = props => {
     inputClassName,
     openInputClassName,
     optionsClassName,
-    optionClassName
+    optionClassName,
+    selectedOptionClassName
   } = props;
 
   const [typedText, setTypedText] = useState(null);
@@ -58,7 +60,7 @@ const Select = props => {
             onClick={() => optionClicked(option)}
           >
             <div
-              className={`option-picker-option ${optionClassName || ""}`}
+              className={`option-picker-option ${option.id !== value || "option-picker-option-selected"} ${option.id !== value || selectedOptionClassName} ${optionClassName || ""}`}
             >
               {option.label}
             </div>
