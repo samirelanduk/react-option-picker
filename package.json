@@ -3,5 +3,10 @@
     "version": "0.1.0",
     "description": "A React component for picking options from a list",
     "main": "dist/index.js",
-    "files": ["dist"]
+    "files": [
+        "dist"
+    ],
+    "devDependencies": {
+        "rollup": "^3.23.0"
+    }
 }
