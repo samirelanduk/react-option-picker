@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
 const Select = props => {
+  /**
+   * @props {string} className - A class name for the outermost div.
+   * @props {string} inputClassName - A class name for the input.
+   * @props {string} optionsClassName - A class name for the options list.
+   * @props {string} optionClassName - A class name for each option.
+   * 
+   */
 
   const {
     value,
@@ -10,6 +17,7 @@ const Select = props => {
     className,
     inputClassName,
     optionsClassName,
+    optionClassName
   } = props;
 
   const [typedText, setTypedText] = useState(null);
@@ -25,9 +33,12 @@ const Select = props => {
   }
 
   return (
-    <div className={className} style={{position: "relative"}}>
+    <div
+      className={`option-picker ${className || ""}`}
+      style={{position: "relative"}}
+    >
       <input
-        className={inputClassName}
+        className={`option-picker-input ${inputClassName || ""}`}
         value={displayText}
         onChange={e => filter && setText(e.target.value)}
         onClick={() => setShowOptions(true)}
@@ -39,10 +50,14 @@ const Select = props => {
         {options.map((option, index) => (
           <div
             key={index}
-            className="optionClassName"
+            className={`option-picker-options ${optionsClassName || ""}`}
             onClick={() => optionClicked(option)}
           >
-            {option.label}
+            <div
+              className={`option-picker-option ${optionClassName || ""}`}
+            >
+              {option.label}
+            </div>
           </div>
         ))}
       </div>
