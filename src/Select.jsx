@@ -3,7 +3,9 @@ import React, { useState } from "react";
 const Select = props => {
   /**
    * @props {string} className - A class name for the outermost div.
+   * @props {string} openClassName - A class name for the outpermost div when open.
    * @props {string} inputClassName - A class name for the input.
+   * @props {string} openInputClassName - A class name for the input when open.
    * @props {string} optionsClassName - A class name for the options list.
    * @props {string} optionClassName - A class name for each option.
    * 
@@ -15,7 +17,9 @@ const Select = props => {
     options,
     filter,
     className,
+    openClassName,
     inputClassName,
+    openInputClassName,
     optionsClassName,
     optionClassName
   } = props;
@@ -34,11 +38,11 @@ const Select = props => {
 
   return (
     <div
-      className={`option-picker ${className || ""}`}
+      className={`option-picker ${!showOptions || "option-picker-open"} ${!showOptions || openClassName || ""} ${className || ""}`}
       style={{position: "relative"}}
     >
       <input
-        className={`option-picker-input ${inputClassName || ""}`}
+        className={`option-picker-input ${!showOptions || "option-picker-input-open"} ${!showOptions || openInputClassName || ""} ${inputClassName || ""}`}
         value={displayText}
         onChange={e => filter && setText(e.target.value)}
         onClick={() => setShowOptions(true)}
