@@ -1,0 +1,7 @@
+{
+    "name": "react-option-picker",
+    "version": "0.1.0",
+    "description": "A React component for picking options from a list",
+    "main": "dist/index.js",
+    "files": ["dist"]
+}
