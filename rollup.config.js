@@ -2,12 +2,12 @@ import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 
 export default {
-	input: "src/Select.jsx",
-	output: {
-		file: "dist/index.js",
+  input: "src/Select.jsx",
+  output: {
+    file: "dist/index.js",
     name: "bundle",
-		format: "esm"
-	},
+    format: "esm"
+  },
   plugins: [
     commonjs(),
     babel({ 

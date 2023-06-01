@@ -1,16 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const Select = props => {
+
+  const {
+    className,
+    inputClassName,
+  } = props;
+
   return (
-    <div>
-      Selector
+    <div className={className}>
+      <input
+        className={inputClassName}
+      />
     </div>
   );
-};
-
-Select.propTypes = {
-  
 };
 
 export default Select;
