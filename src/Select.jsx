@@ -49,6 +49,7 @@ const Select = props => {
         value={displayText}
         onChange={e => filter && setText(e.target.value)}
         onClick={inputClicked}
+        readOnly
       />
       {showOptions && (
         <Options

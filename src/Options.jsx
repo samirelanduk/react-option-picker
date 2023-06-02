@@ -31,20 +31,16 @@ const Options = props => {
   return (
     <div
       ref={ref}
-      className={optionsClassName}
+      className={`option-picker-options ${optionsClassName || ""}`}
       style={{position: "absolute"}}
     >
       {options.map((option, index) => (
         <div
           key={index}
-          className={`option-picker-options ${optionsClassName || ""}`}
           onClick={() => optionClicked(option)}
+          className={`option-picker-option ${option.id !== value || "option-picker-option-selected"} ${option.id !== value || selectedOptionClassName} ${optionClassName || ""}`}
         >
-          <div
-            className={`option-picker-option ${option.id !== value || "option-picker-option-selected"} ${option.id !== value || selectedOptionClassName} ${optionClassName || ""}`}
-          >
-            {option.label}
-          </div>
+          {option.label}
         </div>
       ))}
     </div>

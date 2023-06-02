@@ -12,6 +12,7 @@
         "dev": "rollup -c -w"
     },
     "devDependencies": {
+        "@babel/core": "^7.22.1",
         "@babel/preset-env": "^7.22.4",
         "@babel/preset-react": "^7.22.3",
         "@rollup/plugin-babel": "^6.0.3",
