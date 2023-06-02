@@ -34,6 +34,11 @@ const Select = props => {
 
   const displayText = typedText || selectedOption?.label || "";
 
+  const inputClicked = e => {
+    setShowOptions(true);
+    e.stopPropagation();
+  }
+
   return (
     <div
       className={`option-picker ${!showOptions || "option-picker-open"} ${!showOptions || openClassName || ""} ${className || ""}`}
@@ -43,7 +48,7 @@ const Select = props => {
         className={`option-picker-input ${!showOptions || "option-picker-input-open"} ${!showOptions || openInputClassName || ""} ${inputClassName || ""}`}
         value={displayText}
         onChange={e => filter && setText(e.target.value)}
-        onClick={() => setShowOptions(true)}
+        onClick={inputClicked}
       />
       {showOptions && (
         <Options

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const Options = props => {
 
@@ -12,6 +12,17 @@ const Options = props => {
     selectedOptionClassName
   } = props;
 
+  const ref = useRef();
+
+  useEffect(() => {
+    const dismiss = e => {
+      if (ref.current.contains(e.target)) return;
+      setShowOptions(false)
+    };
+    window.addEventListener("click", dismiss);
+    return () => window.removeEventListener("click", dismiss);
+  }, [])
+
   const optionClicked = option => {
     setValue(option.id);
     setShowOptions(false);
@@ -19,6 +30,7 @@ const Options = props => {
 
   return (
     <div
+      ref={ref}
       className={optionsClassName}
       style={{position: "absolute"}}
     >
