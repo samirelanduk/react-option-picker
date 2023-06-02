@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Options from "./Options.jsx";
 
 const Select = props => {
   /**
@@ -33,11 +34,6 @@ const Select = props => {
 
   const displayText = typedText || selectedOption?.label || "";
 
-  const optionClicked = option => {
-    setValue(option.id);
-    setShowOptions(false);
-  }
-
   return (
     <div
       className={`option-picker ${!showOptions || "option-picker-open"} ${!showOptions || openClassName || ""} ${className || ""}`}
@@ -49,24 +45,17 @@ const Select = props => {
         onChange={e => filter && setText(e.target.value)}
         onClick={() => setShowOptions(true)}
       />
-      <div
-        className={optionsClassName}
-        style={{position: "absolute", display: showOptions ? undefined : "none"}}
-      >
-        {options.map((option, index) => (
-          <div
-            key={index}
-            className={`option-picker-options ${optionsClassName || ""}`}
-            onClick={() => optionClicked(option)}
-          >
-            <div
-              className={`option-picker-option ${option.id !== value || "option-picker-option-selected"} ${option.id !== value || selectedOptionClassName} ${optionClassName || ""}`}
-            >
-              {option.label}
-            </div>
-          </div>
-        ))}
-      </div>
+      {showOptions && (
+        <Options
+          options={options}
+          value={value}
+          setValue={setValue}
+          setShowOptions={setShowOptions}
+          optionsClassName={optionsClassName}
+          optionClassName={optionClassName}
+          selectedOptionClassName={selectedOptionClassName}
+        />
+      )}
     </div>
   );
 };
