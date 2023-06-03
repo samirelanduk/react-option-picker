@@ -36,7 +36,7 @@ const Select = props => {
 
   const inputClicked = e => {
     setShowOptions(true);
-    e.stopPropagation();
+    if (!showOptions) e.stopPropagation();
   }
 
   return (
