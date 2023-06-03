@@ -4,9 +4,21 @@
     "version": "0.1.0",
     "description": "A React component for picking options from a list",
     "main": "dist/index.js",
-    "files": [
-        "dist"
+    "files": ["dist"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/samirelanduk/react-option-picker.git"
+    },
+    "keywords": [
+        "react",
+        "select"
     ],
+    "author": "Sam Ireland",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/samirelanduk/react-option-picker/issues"
+    },
+    "homepage": "https://github.com/samirelanduk/react-option-picker#readme",
     "scripts": {
         "build": "rollup -c",
         "dev": "rollup -c -w"
